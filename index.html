@@ -11,12 +11,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --green: #2D8B54;
-            --green-dark: #1F6B3F;
-            --red: #E63946;
-            --grey-bg: #F5F5F5;
-            --grey-text: #666666;
-            --dark: #333333;
+            --navy: #1a2848;
+            --navy-dark: #0e1a35;
+            --navy-deep: #060d1f;
+            --silver: #a8b3c4;
+            --silver-light: #d4dae3;
+            --bone: #f5f6f8;
+            --grey-bg: #f0f2f5;
+            --grey-text: #5a6577;
+            --dark: #1a2030;
             --white: #FFFFFF;
         }
 
@@ -27,6 +30,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background: var(--white);
         }
 
         /* ── HEADER ── */
@@ -38,11 +42,11 @@
             transition: box-shadow 0.3s ease;
         }
         header.scrolled {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
         }
 
         .header-top {
-            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
             padding: 0.7rem 0;
             text-align: center;
             position: relative;
@@ -53,8 +57,8 @@
             position: absolute;
             top: -50%; left: -50%;
             width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.08), transparent);
+            animation: shimmer 4s infinite;
         }
         @keyframes shimmer {
             0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
@@ -68,6 +72,16 @@
             text-transform: uppercase;
             position: relative;
         }
+        .header-top .es-text {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 0.7rem;
+            opacity: 0.65;
+            letter-spacing: 0.15em;
+            margin-top: 0.15rem;
+            text-transform: none;
+        }
 
         nav {
             max-width: 1400px;
@@ -79,7 +93,7 @@
             border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
-        .logo { 
+        .logo {
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;
@@ -87,8 +101,8 @@
             overflow: hidden;
         }
         .logo:hover { transform: scale(1.03); }
-        .logo img { 
-            height: 60px; 
+        .logo img {
+            height: 60px;
             width: auto;
             max-width: 200px;
             object-fit: contain;
@@ -116,17 +130,18 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: var(--red);
+            background: var(--silver);
             transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-menu a:hover { color: var(--green); }
+        .nav-menu a:hover { color: var(--navy); }
         .nav-menu a:hover::after { width: 100%; }
 
         .lang-selector {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             font-weight: 600;
             font-size: 0.85rem;
+            align-items: center;
         }
         .lang-selector a {
             color: var(--grey-text);
@@ -134,12 +149,14 @@
             transition: all 0.3s ease;
             padding: 0.4rem 0.9rem;
             border-radius: 4px;
+            cursor: pointer;
         }
         .lang-selector a:hover,
         .lang-selector a.active {
             color: var(--white);
-            background: var(--green);
+            background: var(--navy);
         }
+        .lang-sep { color: var(--silver); }
 
         /* Mobile menu toggle */
         .menu-toggle {
@@ -158,7 +175,7 @@
 
         /* ── HERO BANNER ── */
         .hero-banner {
-            background: var(--dark);
+            background: var(--navy-deep);
             min-height: 65vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -170,8 +187,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
             background-size: 55px 55px;
         }
 
@@ -195,14 +212,25 @@
         }
         .hero-label-line {
             width: 36px; height: 1px;
-            background: var(--green);
+            background: var(--silver);
+        }
+        .hero-label .label-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
         }
         .hero-label span {
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: rgba(45,139,84,0.9);
+            color: var(--silver-light);
+        }
+        .hero-label .es-text {
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0.55;
+            letter-spacing: 0.18em;
         }
 
         .hero-title {
@@ -229,9 +257,17 @@
             color: rgba(255,255,255,0.55);
             line-height: 1.9;
             max-width: 420px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
             opacity: 0;
             animation: fadeUp 0.9s ease forwards 0.7s;
+        }
+        .hero-desc.es {
+            font-style: italic;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 2.5rem;
+            font-size: 0.85rem;
+            padding-left: 0.8rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
         }
 
         .hero-btns {
@@ -246,7 +282,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.7rem;
-            background: var(--green);
+            background: var(--navy);
             color: var(--white);
             padding: 0.95rem 2rem;
             font-size: 0.78rem;
@@ -259,9 +295,9 @@
             transition: all 0.3s ease;
         }
         .btn-main:hover {
-            background: var(--green-dark);
+            background: var(--navy-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(31,107,63,0.45);
+            box-shadow: 0 10px 28px rgba(14,26,53,0.5);
         }
         .btn-main svg { transition: transform 0.3s; }
         .btn-main:hover svg { transform: translateX(4px); }
@@ -305,7 +341,7 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.35);
+            color: rgba(255,255,255,0.4);
             margin-top: 0.3rem;
         }
 
@@ -331,25 +367,25 @@
             top: 50%; left: 50%;
             transform: translate(-50%,-50%);
         }
-        .c-ring-1 { width: 320px; height: 320px; border-color: rgba(45,139,84,0.1); animation: spin 45s linear infinite; }
-        .c-ring-2 { width: 240px; height: 240px; border-color: rgba(45,139,84,0.18); animation: spin 28s linear infinite reverse; }
-        .c-ring-3 { width: 160px; height: 160px; border-color: rgba(45,139,84,0.3); animation: spin 16s linear infinite; }
+        .c-ring-1 { width: 320px; height: 320px; border-color: rgba(168,179,196,0.18); animation: spin 45s linear infinite; }
+        .c-ring-2 { width: 240px; height: 240px; border-color: rgba(168,179,196,0.28); animation: spin 28s linear infinite reverse; }
+        .c-ring-3 { width: 160px; height: 160px; border-color: rgba(168,179,196,0.45); animation: spin 16s linear infinite; }
         .c-dot {
             position: absolute;
             width: 7px; height: 7px;
-            background: var(--green);
+            background: var(--silver);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--green);
+            box-shadow: 0 0 10px var(--silver);
         }
-        .c-dot-red { background: var(--red); box-shadow: 0 0 10px var(--red); }
+        .c-dot-light { background: var(--silver-light); box-shadow: 0 0 10px var(--silver-light); }
         .c-center {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%,-50%);
             width: 100px; height: 100px;
             border-radius: 50%;
-            background: rgba(45,139,84,0.07);
-            border: 1.5px solid rgba(45,139,84,0.35);
+            background: rgba(168,179,196,0.08);
+            border: 1.5px solid rgba(168,179,196,0.45);
             display: flex; align-items: center; justify-content: center;
             animation: pulse 3s ease-in-out infinite;
         }
@@ -358,31 +394,41 @@
             font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 0.15em;
-            color: rgba(45,139,84,0.9);
+            color: var(--silver-light);
             text-transform: uppercase;
         }
 
         .float-tag {
             position: absolute;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.09);
+            border: 1px solid rgba(255,255,255,0.1);
             padding: 0.65rem 1rem;
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.7);
             backdrop-filter: blur(8px);
             white-space: nowrap;
         }
-        .ft1 { top: 10%; right: 5%; animation: floatY 4s ease-in-out infinite; }
-        .ft2 { bottom: 18%; left: -5%; animation: floatY 4s ease-in-out infinite 1.5s; }
-        .ft3 { top: 55%; right: -3%; animation: floatY 4s ease-in-out infinite 3s; }
+        .float-tag .es-mini {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0.55;
+            margin-top: 0.2rem;
+            letter-spacing: 0.1em;
+            text-transform: none;
+            font-size: 0.6rem;
+        }
+        .ft1 { top: 8%; right: 4%; animation: floatY 4s ease-in-out infinite; }
+        .ft2 { bottom: 14%; left: -6%; animation: floatY 4s ease-in-out infinite 1.5s; }
+        .ft3 { top: 52%; right: -4%; animation: floatY 4s ease-in-out infinite 3s; }
         .ft-dot {
             display: inline-block;
             width: 5px; height: 5px;
             border-radius: 50%;
-            background: var(--green);
+            background: var(--silver);
             margin-right: 0.5rem;
             animation: blink 2s ease-in-out infinite;
         }
@@ -396,8 +442,8 @@
             to { transform: translate(-50%,-50%) rotate(360deg); }
         }
         @keyframes pulse {
-            0%,100% { box-shadow: 0 0 0 0 rgba(45,139,84,0.25); }
-            50% { box-shadow: 0 0 0 18px rgba(45,139,84,0); }
+            0%,100% { box-shadow: 0 0 0 0 rgba(168,179,196,0.3); }
+            50% { box-shadow: 0 0 0 18px rgba(168,179,196,0); }
         }
         @keyframes floatY {
             0%,100% { transform: translateY(0); }
@@ -410,7 +456,7 @@
 
         /* ── MARQUEE ── */
         .marquee-bar {
-            background: var(--green-dark);
+            background: var(--navy-dark);
             padding: 0.8rem 0;
             overflow: hidden;
             white-space: nowrap;
@@ -428,9 +474,9 @@
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
         }
-        .m-sep { color: rgba(255,255,255,0.28); font-size: 0.8rem; }
+        .m-sep { color: var(--silver); font-size: 0.8rem; }
         @keyframes marqueeX {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
@@ -460,11 +506,11 @@
         }
         .app-card:hover .app-card-inner { transform: scale(1.05); }
 
-        .app-bg-green {
-            background: linear-gradient(160deg, #0d2b1a 0%, #1a4a2e 40%, #2d8b54 100%);
+        .app-bg-navy {
+            background: linear-gradient(160deg, #060d1f 0%, #0e1a35 40%, #1a2848 100%);
         }
-        .app-bg-red {
-            background: linear-gradient(160deg, #1a0508 0%, #3d0d15 40%, #E63946 100%);
+        .app-bg-steel {
+            background: linear-gradient(160deg, #0e1a35 0%, #233557 40%, #4a5a78 100%);
         }
 
         .app-overlay {
@@ -472,11 +518,11 @@
             inset: 0;
             z-index: 1;
         }
-        .app-bg-green + .app-overlay {
-            background: linear-gradient(to top, rgba(15,43,26,0.97) 0%, rgba(15,43,26,0.4) 60%, transparent 100%);
+        .app-bg-navy + .app-overlay {
+            background: linear-gradient(to top, rgba(6,13,31,0.97) 0%, rgba(6,13,31,0.4) 60%, transparent 100%);
         }
-        .app-bg-red + .app-overlay {
-            background: linear-gradient(to top, rgba(26,5,8,0.97) 0%, rgba(26,5,8,0.4) 60%, transparent 100%);
+        .app-bg-steel + .app-overlay {
+            background: linear-gradient(to top, rgba(14,26,53,0.97) 0%, rgba(14,26,53,0.4) 60%, transparent 100%);
         }
 
         .app-content {
@@ -509,19 +555,35 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.4rem;
             line-height: 1.2;
+        }
+        .app-content .es-h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1rem;
+            text-transform: none;
+            letter-spacing: 0.02em;
         }
 
         .app-content p {
             font-size: 0.84rem;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.7);
             line-height: 1.8;
             max-width: 360px;
-            margin-bottom: 1.8rem;
+            margin-bottom: 0.5rem;
             opacity: 0;
             transform: translateY(8px);
             transition: all 0.4s ease;
+        }
+        .app-content .es-p {
+            font-style: italic;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.78rem;
+            margin-bottom: 1.8rem;
         }
         .app-card:hover .app-content p {
             opacity: 1;
@@ -536,7 +598,7 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             transition: all 0.3s ease;
         }
         .app-card:hover .app-arrow { color: var(--white); gap: 1.2rem; }
@@ -579,13 +641,13 @@
             gap: 0.8rem;
             margin-bottom: 1.5rem;
         }
-        .tag-line { width: 28px; height: 1.5px; background: var(--green); }
+        .tag-line { width: 28px; height: 1.5px; background: var(--navy); }
         .tag-text {
             font-size: 0.67rem;
             font-weight: 700;
             letter-spacing: 0.26em;
             text-transform: uppercase;
-            color: var(--green);
+            color: var(--navy);
         }
 
         .about-intro-left h2 {
@@ -599,7 +661,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--navy-dark);
             margin-top: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -612,7 +674,7 @@
             color: var(--dark);
             margin-bottom: 0.8rem;
         }
-        .about-intro-right .it-text {
+        .about-intro-right .es-text {
             font-size: 0.92rem;
             color: #999;
             font-style: italic;
@@ -646,13 +708,13 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--navy-dark);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             line-height: 1.15;
             margin-bottom: 0.5rem;
         }
-        .section-label .it-label {
+        .section-label .es-label {
             font-size: 0.83rem;
             color: #bbb;
             font-style: italic;
@@ -667,7 +729,6 @@
             user-select: none;
         }
 
-        .section-body {}
         .section-body .text-group {
             margin-bottom: 2.2rem;
             position: relative;
@@ -680,7 +741,7 @@
             position: absolute;
             left: 0; top: 0; bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--green) 0%, var(--red) 100%);
+            background: linear-gradient(180deg, var(--navy) 0%, var(--silver) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -693,7 +754,7 @@
             margin-bottom: 0.6rem;
             font-weight: 400;
         }
-        .section-body .it-text {
+        .section-body .es-text {
             font-size: 0.92rem;
             color: #999;
             font-style: italic;
@@ -718,23 +779,23 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--green);
+            color: var(--navy);
             min-width: 28px;
             line-height: 1.3;
         }
 
-        .it-list { list-style: none; margin: 0.5rem 0 2rem 0; padding: 0; }
-        .it-list li {
+        .es-list { list-style: none; margin: 0.5rem 0 2rem 0; padding: 0; }
+        .es-list li {
             font-size: 0.92rem;
             color: #999;
             font-style: italic;
             margin-bottom: 0.7rem;
             padding-left: 0.8rem;
         }
-        .it-list li::before {
+        .es-list li::before {
             content: '—';
             margin-right: 0.7rem;
-            color: var(--red);
+            color: var(--silver);
             font-style: normal;
             font-size: 0.85rem;
         }
@@ -758,12 +819,12 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: var(--green);
+            background: var(--navy);
             transition: width 0.35s ease;
         }
         .val-card:hover::after { width: 100%; }
         .val-card:hover {
-            border-color: rgba(45,139,84,0.2);
+            border-color: rgba(26,40,72,0.25);
             box-shadow: 0 6px 24px rgba(0,0,0,0.07);
             transform: translateY(-2px);
         }
@@ -810,12 +871,29 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        .products-header-left .es-h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.4rem;
+            color: #aaa;
+            margin-top: 0.3rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
         .products-header-right {
             font-size: 0.85rem;
             color: var(--grey-text);
-            max-width: 320px;
+            max-width: 380px;
             line-height: 1.8;
             text-align: right;
+        }
+        .products-header-right .es-text {
+            display: block;
+            font-style: italic;
+            color: #aaa;
+            margin-top: 0.5rem;
+            font-size: 0.78rem;
         }
 
         .products-grid {
@@ -836,7 +914,7 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 3px;
-            background: var(--green);
+            background: var(--navy);
             transition: width 0.4s ease;
         }
         .product-item:hover::after { width: 100%; }
@@ -860,7 +938,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(45,139,84,0.04), rgba(230,57,70,0.04));
+            background: linear-gradient(135deg, rgba(26,40,72,0.04), rgba(168,179,196,0.06));
         }
         .image-placeholder {
             text-align: center;
@@ -874,18 +952,19 @@
             gap: 0.8rem;
         }
         .img-icon {
-            width: 52px; height: 52px;
-            border: 1.5px solid rgba(0,0,0,0.1);
+            width: 60px; height: 60px;
+            border: 1.5px solid rgba(26,40,72,0.15);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
+            background: var(--white);
         }
-        .img-icon svg { width: 24px; height: 24px; stroke: #ccc; fill: none; }
+        .img-icon svg { width: 28px; height: 28px; stroke: var(--navy); fill: none; opacity: 0.7; }
         .img-label {
             font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(0,0,0,0.18);
+            color: rgba(0,0,0,0.25);
         }
 
         .product-info {
@@ -897,14 +976,23 @@
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--green);
+            color: var(--navy);
             margin-bottom: 0.4rem;
+        }
+        .product-cat .es-mini {
+            color: #aaa;
+            font-style: italic;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-top: 0.15rem;
         }
         .product-info h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--navy-dark);
             margin-bottom: 0.4rem;
         }
         .product-info p {
@@ -918,7 +1006,7 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--green-dark);
+            color: var(--navy-dark);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -928,7 +1016,7 @@
 
         /* ── FOOTER ── */
         footer {
-            background: var(--dark);
+            background: var(--navy-deep);
             color: var(--white);
             padding: 5rem 3rem 2rem;
         }
@@ -942,22 +1030,24 @@
             margin-bottom: 3.5rem;
         }
 
-        .footer-logo { 
-            max-height: 50px;
-            overflow: hidden;
+        .footer-logo-box {
+            background: var(--white);
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
         }
-        .footer-logo img { 
-            height: 50px; 
+        .footer-logo-box img {
+            height: 40px;
             width: auto;
-            max-width: 180px;
+            max-width: 160px;
             object-fit: contain;
             display: block;
-            margin-bottom: 2rem;
         }
 
         .footer-brand-info {
             margin-top: 1rem;
-            color: rgba(255,255,255,0.55);
+            color: rgba(255,255,255,0.6);
             font-size: 0.88rem;
             line-height: 1.9;
         }
@@ -970,7 +1060,7 @@
             align-items: center;
             gap: 0.6rem;
         }
-        .footer-email span { color: var(--green); font-size: 1rem; }
+        .footer-email span { color: var(--silver); font-size: 1rem; }
 
         .footer-section h4 {
             font-family: 'Cormorant Garamond', serif;
@@ -981,12 +1071,22 @@
             margin-bottom: 1.8rem;
             color: var(--white);
             padding-bottom: 0.7rem;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-section h4 .es-mini {
+            display: block;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.2rem;
+            text-transform: none;
+            letter-spacing: 0.05em;
         }
         .footer-section ul { list-style: none; }
         .footer-section ul li { margin-bottom: 0.9rem; }
         .footer-section a {
-            color: rgba(255,255,255,0.55);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
             font-size: 0.87rem;
             transition: all 0.25s ease;
@@ -997,20 +1097,31 @@
         .footer-section a::before {
             content: '';
             width: 0; height: 1.5px;
-            background: var(--green);
+            background: var(--silver);
             transition: width 0.25s ease;
         }
         .footer-section a:hover { color: var(--white); }
         .footer-section a:hover::before { width: 12px; }
+        .footer-section a .es-link {
+            color: rgba(255,255,255,0.4);
+            font-style: italic;
+            margin-left: 0.4rem;
+            font-size: 0.78rem;
+        }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2.5rem;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.82rem;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.45);
         }
         .footer-bottom p { margin-bottom: 0.4rem; }
+        .footer-bottom .es-line {
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 0.75rem;
+        }
 
         /* ── PAGE SYSTEM ── */
         .page-content { display: none; }
@@ -1043,8 +1154,7 @@
         @media (max-width: 768px) {
             .header-top { font-size: 0.65rem; padding: 0.5rem 1rem; }
             nav { padding: 1rem 1.5rem; }
-            
-            /* Mobile menu */
+
             .menu-toggle { display: flex; }
             .nav-menu {
                 position: fixed;
@@ -1060,7 +1170,7 @@
                 box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             }
             .nav-menu.active { left: 0; }
-            .nav-menu li { 
+            .nav-menu li {
                 width: 100%;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
             }
@@ -1077,9 +1187,9 @@
 
             .hero-left { padding: 4rem 1.5rem; }
             .hero-title { font-size: 2.5rem; }
-            .hero-stats { 
+            .hero-stats {
                 flex-wrap: wrap;
-                gap: 2rem; 
+                gap: 2rem;
             }
             .hero-btns {
                 flex-direction: column;
@@ -1101,21 +1211,21 @@
             .section-ghost-num { font-size: 3rem; }
 
             .products-page { padding: 5rem 1.5rem; }
-            .products-header { 
-                flex-direction: column; 
-                align-items: flex-start; 
-                gap: 1.5rem; 
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
             }
             .products-header-left h1 { font-size: 2.5rem; }
-            .products-header-right { 
+            .products-header-right {
                 text-align: left;
                 max-width: 100%;
             }
             .products-grid { grid-template-columns: 1fr; }
 
-            .footer-container { 
-                grid-template-columns: 1fr; 
-                gap: 2.5rem; 
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
             footer { padding: 3.5rem 1.5rem 2rem; }
         }
@@ -1135,7 +1245,10 @@
     <!-- ══ HEADER ══ -->
     <header id="mainHeader">
         <div class="header-top">
-            <p>Water Valves and Control Technology</p>
+            <p>
+                Water Valves and Control Technology
+                <span class="es-text">Válvulas de Agua y Tecnología de Control</span>
+            </p>
         </div>
         <nav>
             <div class="logo" onclick="showPage('home')" style="cursor:pointer;">
@@ -1154,7 +1267,8 @@
             </ul>
             <div class="lang-selector">
                 <a href="#" class="active">EN</a>
-                <a href="#">IT</a>
+                <span class="lang-sep">|</span>
+                <a href="#">ES</a>
             </div>
         </nav>
     </header>
@@ -1169,7 +1283,10 @@
             <div class="hero-left">
                 <div class="hero-label">
                     <div class="hero-label-line"></div>
-                    <span>Italian Engineering — Est. 2010, Roma</span>
+                    <div class="label-stack">
+                        <span>Spanish Engineering — Est. 2010, Madrid</span>
+                        <span class="es-text">Ingeniería Española — Fundada en 2010, Madrid</span>
+                    </div>
                 </div>
 
                 <h1 class="hero-title">
@@ -1179,7 +1296,10 @@
                 </h1>
 
                 <p class="hero-desc">
-                    Italian-engineered solutions for sanitary materials and plumbing. Where ancient craftsmanship meets modern precision.
+                    Spanish-engineered solutions for sanitary materials and plumbing. Where craftsmanship meets modern precision.
+                </p>
+                <p class="hero-desc es">
+                    Soluciones de ingeniería española para materiales sanitarios y fontanería. Donde la artesanía se encuentra con la precisión moderna.
                 </p>
 
                 <div class="hero-btns">
@@ -1199,8 +1319,8 @@
                         <div class="stat-lbl">Founded</div>
                     </div>
                     <div>
-                        <div class="stat-num">Roma</div>
-                        <div class="stat-lbl">Italy</div>
+                        <div class="stat-num">Madrid</div>
+                        <div class="stat-lbl">Spain</div>
                     </div>
                     <div>
                         <div class="stat-num">EN</div>
@@ -1215,14 +1335,23 @@
                         <div class="c-dot" style="position:absolute;top:6px;left:50%;transform:translateX(-50%);"></div>
                     </div>
                     <div class="c-ring c-ring-2">
-                        <div class="c-dot c-dot-red" style="position:absolute;bottom:8px;right:8px;"></div>
+                        <div class="c-dot c-dot-light" style="position:absolute;bottom:8px;right:8px;"></div>
                     </div>
                     <div class="c-ring c-ring-3"></div>
                     <div class="c-center"><span>Fonte</span></div>
                 </div>
-                <div class="float-tag ft1"><span class="ft-dot"></span>Made in Italy</div>
-                <div class="float-tag ft2"><span class="ft-dot" style="animation-delay:0.7s;"></span>EN 1213 Compliant</div>
-                <div class="float-tag ft3"><span class="ft-dot" style="background:var(--red);box-shadow:0 0 6px var(--red);animation-delay:1.4s;"></span>ISO 9001 Quality</div>
+                <div class="float-tag ft1">
+                    <span class="ft-dot"></span>Made in Spain
+                    <span class="es-mini">Hecho en España</span>
+                </div>
+                <div class="float-tag ft2">
+                    <span class="ft-dot" style="animation-delay:0.7s;"></span>EN 1213 Compliant
+                    <span class="es-mini">Conforme EN 1213</span>
+                </div>
+                <div class="float-tag ft3">
+                    <span class="ft-dot c-dot-light" style="animation-delay:1.4s;"></span>ISO 9001 Quality
+                    <span class="es-mini">Calidad ISO 9001</span>
+                </div>
             </div>
         </section>
 
@@ -1233,16 +1362,16 @@
                 <span class="marquee-item">Gate Valves <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Check Valves <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Pressure Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Italian Engineering <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Roma, Italy — Est. 2010 <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Spanish Engineering <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Madrid, Spain — Est. 2010 <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Residential &amp; Industrial <span class="m-sep">◆</span></span>
                 <!-- duplicate for seamless loop -->
                 <span class="marquee-item">Ball Valves <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Gate Valves <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Check Valves <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Pressure Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Italian Engineering <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Roma, Italy — Est. 2010 <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Spanish Engineering <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Madrid, Spain — Est. 2010 <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Residential &amp; Industrial <span class="m-sep">◆</span></span>
             </div>
         </div>
@@ -1252,12 +1381,14 @@
             <div class="app-grid">
                 <!-- Card 1 -->
                 <div class="app-card">
-                    <div class="app-card-inner app-bg-green"></div>
+                    <div class="app-card-inner app-bg-navy"></div>
                     <div class="app-overlay"></div>
                     <div class="app-content">
                         <div class="app-badge">Application 01</div>
                         <h2>Domestic<br>Applications</h2>
-                        <p>Elegant, silent, and durable valves for residential plumbing — designed to blend Italian craftsmanship with everyday reliability.</p>
+                        <p class="es-h2">Aplicaciones Domésticas</p>
+                        <p>Elegant, silent, and durable valves for residential plumbing — designed to blend Spanish craftsmanship with everyday reliability.</p>
+                        <p class="es-p">Válvulas elegantes, silenciosas y duraderas para fontanería residencial — diseñadas para combinar la artesanía española con la fiabilidad cotidiana.</p>
                         <div class="app-arrow">
                             <div class="arr-line"></div>
                             Explore Range
@@ -1266,12 +1397,14 @@
                 </div>
                 <!-- Card 2 -->
                 <div class="app-card">
-                    <div class="app-card-inner app-bg-red"></div>
-                    <div class="app-overlay" style="background:linear-gradient(to top,rgba(26,5,8,0.97) 0%,rgba(26,5,8,0.4) 60%,transparent 100%);"></div>
+                    <div class="app-card-inner app-bg-steel"></div>
+                    <div class="app-overlay"></div>
                     <div class="app-content">
-                        <div class="app-badge" style="background:rgba(230,57,70,0.15);border-color:rgba(230,57,70,0.3);">Application 02</div>
+                        <div class="app-badge">Application 02</div>
                         <h2>Professional and<br>Industrial Applications</h2>
+                        <p class="es-h2">Aplicaciones Profesionales e Industriales</p>
                         <p>High-performance valve systems engineered for commercial and industrial environments — built to withstand the most demanding conditions.</p>
+                        <p class="es-p">Sistemas de válvulas de alto rendimiento diseñados para entornos comerciales e industriales — construidos para resistir las condiciones más exigentes.</p>
                         <div class="app-arrow">
                             <div class="arr-line"></div>
                             Explore Range
@@ -1297,16 +1430,16 @@
                     </div>
                     <div class="about-intro-right">
                         <div class="text-group">
-                            <p>Fonte is an Italian brand specialized in sanitary materials and plumbing solutions, founded in 2010 in Rome, the capital of Italy, where ancient architectural heritage meets modern engineering innovation.</p>
-                            <p class="it-text">Fonte è un marchio italiano specializzato in materiali sanitari e soluzioni idrauliche, fondata nel 2010 a Roma, la capitale d'Italia, dove l'antico patrimonio architettonico incontra l'innovazione ingegneristica moderna.</p>
+                            <p>Fonte is a Spanish brand specialized in sanitary materials and plumbing solutions, founded in 2010 in Madrid, where centuries of craftsmanship tradition meet modern engineering innovation.</p>
+                            <p class="es-text">Fonte es una marca española especializada en materiales sanitarios y soluciones de fontanería, fundada en 2010 en Madrid, donde siglos de tradición artesanal se encuentran con la innovación ingenieril moderna.</p>
                         </div>
                         <div class="text-group">
-                            <p>We draw our name "Fonte" from the concept of water as the source of life, and reflect this meaning in products that combine high quality, practical performance, and elegant Italian design.</p>
-                            <p class="it-text">Traiamo il nostro nome "Fonte" dal concetto di acqua come fonte di vita, e riflettiamo questo significato in prodotti che combinano alta qualità, prestazioni pratiche e design italiano elegante.</p>
+                            <p>We draw our name "Fonte" from the concept of water as the source of life, and reflect this meaning in products that combine high quality, practical performance, and elegant Spanish design.</p>
+                            <p class="es-text">Tomamos nuestro nombre "Fonte" del concepto del agua como fuente de vida, y reflejamos este significado en productos que combinan alta calidad, rendimiento práctico y un diseño español elegante.</p>
                         </div>
                         <div class="text-group">
-                            <p>We ensure that every piece is an expression of Italian craftsmanship and attention to detail.</p>
-                            <p class="it-text">Garantiamo che ogni pezzo sia un'espressione dell'artigianato italiano e dell'attenzione ai dettagli.</p>
+                            <p>We ensure that every piece is an expression of Spanish craftsmanship and attention to detail.</p>
+                            <p class="es-text">Garantizamos que cada pieza es una expresión de la artesanía española y la atención al detalle.</p>
                         </div>
                     </div>
                 </div>
@@ -1316,13 +1449,13 @@
                     <div class="section-label">
                         <div class="section-tag"><div class="tag-line"></div><span class="tag-text">02</span></div>
                         <h3>Our Vision</h3>
-                        <p class="it-label">La Nostra Visione</p>
+                        <p class="es-label">Nuestra Visión</p>
                         <div class="section-ghost-num">02</div>
                     </div>
                     <div class="section-body">
                         <div class="text-group">
-                            <p>To become a globally leading Italian brand in sanitary materials and plumbing, known for distinctive design, reliability, and sustainability.</p>
-                            <p class="it-text">Diventare un marchio italiano leader a livello globale nei materiali sanitari e idraulici, noto per il design distintivo, l'affidabilità e la sostenibilità.</p>
+                            <p>To become a globally leading Spanish brand in sanitary materials and plumbing, known for distinctive design, reliability, and sustainability.</p>
+                            <p class="es-text">Convertirnos en una marca española líder a nivel mundial en materiales sanitarios y fontanería, reconocida por su diseño distintivo, fiabilidad y sostenibilidad.</p>
                         </div>
                     </div>
                 </div>
@@ -1332,29 +1465,29 @@
                     <div class="section-label">
                         <div class="section-tag"><div class="tag-line"></div><span class="tag-text">03</span></div>
                         <h3>Our Mission</h3>
-                        <p class="it-label">La Nostra Missione</p>
+                        <p class="es-label">Nuestra Misión</p>
                         <div class="section-ghost-num">03</div>
                     </div>
                     <div class="section-body">
                         <div class="text-group">
                             <p>To provide comprehensive solutions in sanitary materials and plumbing distinguished by:</p>
-                            <p class="it-text">Fornire soluzioni complete in materiali sanitari e idraulici che si distinguono per:</p>
+                            <p class="es-text">Proporcionar soluciones integrales en materiales sanitarios y de fontanería que se distingan por:</p>
                         </div>
                         <ul class="mission-list">
-                            <li><span class="m-num">01</span>Italian manufacturing quality</li>
+                            <li><span class="m-num">01</span>Spanish manufacturing quality</li>
                             <li><span class="m-num">02</span>Modern designs inspired by European taste</li>
                             <li><span class="m-num">03</span>Long-lasting reliable performance</li>
                             <li><span class="m-num">04</span>Compliance with the highest international standards</li>
                         </ul>
-                        <ul class="it-list">
-                            <li>Qualità di produzione italiana</li>
-                            <li>Design moderni ispirati al gusto europeo</li>
-                            <li>Prestazioni affidabili a lungo termine</li>
-                            <li>Conformità ai più alti standard internazionali</li>
+                        <ul class="es-list">
+                            <li>Calidad de fabricación española</li>
+                            <li>Diseños modernos inspirados en el gusto europeo</li>
+                            <li>Rendimiento fiable de larga duración</li>
+                            <li>Cumplimiento de los más altos estándares internacionales</li>
                         </ul>
                         <div class="text-group">
                             <p>With a focus on meeting the needs of residential and commercial projects alike.</p>
-                            <p class="it-text">Con un focus sul soddisfare le esigenze di progetti residenziali e commerciali allo stesso modo.</p>
+                            <p class="es-text">Con un enfoque en satisfacer las necesidades tanto de proyectos residenciales como comerciales.</p>
                         </div>
                     </div>
                 </div>
@@ -1364,17 +1497,17 @@
                     <div class="section-label">
                         <div class="section-tag"><div class="tag-line"></div><span class="tag-text">04</span></div>
                         <h3>Our Products</h3>
-                        <p class="it-label">I Nostri Prodotti</p>
+                        <p class="es-label">Nuestros Productos</p>
                         <div class="section-ghost-num">04</div>
                     </div>
                     <div class="section-body">
                         <div class="text-group">
                             <p>Fonte specializes in high-quality water valves, designed to the highest European standards to provide reliable performance, long-lasting durability, and ease of control.</p>
-                            <p class="it-text">Fonte è specializzata in valvole per l'acqua di alta qualità, progettate secondo i più alti standard europei per fornire prestazioni affidabili, durata a lungo termine e facilità di controllo.</p>
+                            <p class="es-text">Fonte se especializa en válvulas de agua de alta calidad, diseñadas según los más altos estándares europeos para ofrecer un rendimiento fiable, durabilidad de larga duración y facilidad de control.</p>
                         </div>
                         <div class="text-group">
-                            <p>Fonte valves combine engineering precision with elegant Italian design to meet the needs of residential and commercial applications.</p>
-                            <p class="it-text">Le valvole Fonte combinano la precisione ingegneristica con l'elegante design italiano per soddisfare le esigenze di applicazioni residenziali e commerciali.</p>
+                            <p>Fonte valves combine engineering precision with elegant Spanish design to meet the needs of residential and commercial applications.</p>
+                            <p class="es-text">Las válvulas Fonte combinan la precisión ingenieril con el elegante diseño español para satisfacer las necesidades de aplicaciones residenciales y comerciales.</p>
                         </div>
                     </div>
                 </div>
@@ -1384,26 +1517,26 @@
                     <div class="section-label">
                         <div class="section-tag"><div class="tag-line"></div><span class="tag-text">05</span></div>
                         <h3>Our Values</h3>
-                        <p class="it-label">I Nostri Valori</p>
+                        <p class="es-label">Nuestros Valores</p>
                         <div class="section-ghost-num">05</div>
                     </div>
                     <div class="section-body">
                         <div class="values-grid">
                             <div class="val-card">
                                 <strong>Quality and precision in every detail</strong>
-                                <span>Qualità e precisione in ogni dettaglio</span>
+                                <span>Calidad y precisión en cada detalle</span>
                             </div>
                             <div class="val-card">
                                 <strong>Engineering innovation</strong>
-                                <span>Innovazione ingegneristica</span>
+                                <span>Innovación ingenieril</span>
                             </div>
                             <div class="val-card">
-                                <strong>Italian elegance</strong>
-                                <span>Eleganza italiana</span>
+                                <strong>Spanish elegance</strong>
+                                <span>Elegancia española</span>
                             </div>
                             <div class="val-card">
                                 <strong>Sustainability and water resource conservation</strong>
-                                <span>Sostenibilità e conservazione delle risorse idriche</span>
+                                <span>Sostenibilidad y conservación de los recursos hídricos</span>
                             </div>
                         </div>
                     </div>
@@ -1421,53 +1554,125 @@
                     <div class="products-header-left">
                         <div class="section-tag">
                             <div class="tag-line"></div>
-                            <span class="tag-text">Catalogue</span>
+                            <span class="tag-text">Catalogue / Catálogo</span>
                         </div>
                         <h1>Our Products</h1>
+                        <p class="es-h1">Nuestros Productos</p>
                     </div>
                     <div class="products-header-right">
-                        Precision-engineered Italian water valves and control technology — designed for performance, built to last.
+                        Precision-engineered Spanish water valves and control technology — designed for performance, built to last.
+                        <span class="es-text">Válvulas de agua y tecnología de control de ingeniería española — diseñadas para el rendimiento, construidas para durar.</span>
                     </div>
                 </div>
 
                 <div class="products-grid">
-                    
-                    <!-- PRODUCT 1 -->
+                    <!-- Product 1 -->
                     <div class="product-item">
                         <div class="product-image-box">
                             <div class="image-placeholder">
                                 <div class="img-icon">
-                                    <svg viewBox="0 0 24 24" stroke-width="1.2"><circle cx="12" cy="12" r="8"/></svg>
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/></svg>
                                 </div>
-                                <div class="img-label">Flush Mechanism</div>
+                                <span class="img-label">Product Image 1</span>
                             </div>
                         </div>
                         <div class="product-info">
-                            <div class="product-cat">Sanitary System</div>
-                            <h3>Flush Mechanism</h3>
-                            <p>High-quality flushing mechanism engineered for durability, precision, and silent performance.</p>
-                            <div class="product-lnk">Discover More →</div>
+                            <p class="product-cat">Ball Valve<span class="es-mini">Válvula de Bola</span></p>
+                            <h3>Product Name 1</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
                         </div>
                     </div>
 
-                    <!-- PRODUCT 2 -->
+                    <!-- Product 2 -->
                     <div class="product-item">
                         <div class="product-image-box">
                             <div class="image-placeholder">
                                 <div class="img-icon">
-                                    <svg viewBox="0 0 24 24" stroke-width="1.2"><path d="M4 12h16"/></svg>
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
                                 </div>
-                                <div class="img-label">Washbasin Faucet</div>
+                                <span class="img-label">Product Image 2</span>
                             </div>
                         </div>
                         <div class="product-info">
-                            <div class="product-cat">Bathroom Collection</div>
-                            <h3>Washbasin Faucet</h3>
-                            <p>Elegant washbasin faucet combining modern aesthetics with long-lasting Italian engineering quality.</p>
-                            <div class="product-lnk">Discover More →</div>
+                            <p class="product-cat">Gate Valve<span class="es-mini">Válvula de Compuerta</span></p>
+                            <h3>Product Name 2</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
                         </div>
                     </div>
 
+                    <!-- Product 3 -->
+                    <div class="product-item">
+                        <div class="product-image-box">
+                            <div class="image-placeholder">
+                                <div class="img-icon">
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+                                </div>
+                                <span class="img-label">Product Image 3</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Check Valve<span class="es-mini">Válvula de Retención</span></p>
+                            <h3>Product Name 3</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-item">
+                        <div class="product-image-box">
+                            <div class="image-placeholder">
+                                <div class="img-icon">
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg>
+                                </div>
+                                <span class="img-label">Product Image 4</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Pressure Valve<span class="es-mini">Válvula de Presión</span></p>
+                            <h3>Product Name 4</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-item">
+                        <div class="product-image-box">
+                            <div class="image-placeholder">
+                                <div class="img-icon">
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10"/><path d="M16 2v6h-6"/></svg>
+                                </div>
+                                <span class="img-label">Product Image 5</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Control Valve<span class="es-mini">Válvula de Control</span></p>
+                            <h3>Product Name 5</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-item">
+                        <div class="product-image-box">
+                            <div class="image-placeholder">
+                                <div class="img-icon">
+                                    <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+                                </div>
+                                <span class="img-label">Product Image 6</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-cat">Safety Valve<span class="es-mini">Válvula de Seguridad</span></p>
+                            <h3>Product Name 6</h3>
+                            <p>Product description here</p>
+                            <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1477,14 +1682,14 @@
     <footer id="contacts">
         <div class="footer-container">
             <div>
-                <div class="footer-logo">
+                <div class="footer-logo-box">
                     <img src="LOGO.jpg" alt="Fonte Logo">
                 </div>
                 <div class="footer-brand-info">
-                    Via dell'Ingegneria 42<br>
-                    00186 Roma, Italy<br><br>
-                    C.F. / P.I.: IT 01234567890<br>
-                    Share capital: 1.500.000 €
+                    Calle de la Ingeniería 42<br>
+                    28013 Madrid, España<br><br>
+                    C.I.F.: B-12345678<br>
+                    Capital social: 1.500.000 €
                 </div>
                 <div class="footer-email">
                     <span>✉</span> info@fonte.com
@@ -1492,23 +1697,25 @@
             </div>
 
             <div class="footer-section">
-                <h4>Company</h4>
+                <h4>Company<span class="es-mini">Empresa</span></h4>
                 <ul>
-                    <li><a href="#company">About Us</a></li>
+                    <li><a href="#company">About Us<span class="es-link">Sobre Nosotros</span></a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4>Legal<span class="es-mini">Legal</span></h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Privacy Policy<span class="es-link">Política de Privacidad</span></a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Fonte S.r.l. — Water Valves and Control Technology</p>
-            <p>Engineered in Rome, Italy</p>
+            <p>© 2026 Fonte S.L. — Water Valves and Control Technology</p>
+            <p class="es-line">© 2026 Fonte S.L. — Válvulas de Agua y Tecnología de Control</p>
+            <p style="margin-top:0.6rem;">Engineered in Madrid, Spain</p>
+            <p class="es-line">Diseñado en Madrid, España</p>
         </div>
     </footer>
 
@@ -1573,7 +1780,7 @@
                 const link = document.querySelector(`.nav-menu a[href="#${id}"]`);
                 if (scrollY > top && scrollY <= bot) {
                     document.querySelectorAll('.nav-menu a').forEach(l => l.style.color = 'var(--dark)');
-                    if (link) link.style.color = 'var(--green)';
+                    if (link) link.style.color = 'var(--navy)';
                 }
             });
         });
