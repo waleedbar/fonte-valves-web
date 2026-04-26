@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fonte | Water Valves and Control Technology</title>
+    <title>Fonte | Luxury Sanitary Ware and Plumbing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,6 +19,9 @@
             --bone: #f5f6f8;
             --grey-bg: #f0f2f5;
             --grey-text: #5a6577;
+            --grey-mid: #8c95a6;
+            --grey-light: #c8cdd6;
+            --grey-accent: #6b7a94;
             --dark: #1a2030;
             --white: #FFFFFF;
         }
@@ -130,7 +133,7 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: var(--silver);
+            background: var(--grey-accent);
             transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .nav-menu a:hover { color: var(--navy); }
@@ -158,7 +161,6 @@
         }
         .lang-sep { color: var(--silver); }
 
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -354,7 +356,6 @@
             padding: 4rem;
         }
 
-        /* Animated circle diagram */
         .circle-wrap {
             position: relative;
             width: 320px;
@@ -510,7 +511,7 @@
             background: linear-gradient(160deg, #060d1f 0%, #0e1a35 40%, #1a2848 100%);
         }
         .app-bg-steel {
-            background: linear-gradient(160deg, #0e1a35 0%, #233557 40%, #4a5a78 100%);
+            background: linear-gradient(160deg, #1a1e2a 0%, #2d3447 40%, #4a5068 100%);
         }
 
         .app-overlay {
@@ -522,7 +523,7 @@
             background: linear-gradient(to top, rgba(6,13,31,0.97) 0%, rgba(6,13,31,0.4) 60%, transparent 100%);
         }
         .app-bg-steel + .app-overlay {
-            background: linear-gradient(to top, rgba(14,26,53,0.97) 0%, rgba(14,26,53,0.4) 60%, transparent 100%);
+            background: linear-gradient(to top, rgba(26,30,42,0.97) 0%, rgba(26,30,42,0.4) 60%, transparent 100%);
         }
 
         .app-content {
@@ -684,7 +685,6 @@
             border-left: 2px solid rgba(0,0,0,0.07);
         }
 
-        /* About sections — two-column layout */
         .about-section {
             display: grid;
             grid-template-columns: 240px 1fr;
@@ -741,7 +741,7 @@
             position: absolute;
             left: 0; top: 0; bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, var(--navy) 0%, var(--silver) 100%);
+            background: linear-gradient(180deg, var(--navy) 0%, var(--grey-accent) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -764,7 +764,6 @@
             border-left: 2px solid rgba(0,0,0,0.07);
         }
 
-        /* Mission list */
         .mission-list { list-style: none; margin: 2rem 0; }
         .mission-list li {
             display: flex;
@@ -813,13 +812,14 @@
             transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #fff 0%, #f7f8fa 100%);
         }
         .val-card::after {
             content: '';
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: var(--navy);
+            background: linear-gradient(90deg, var(--navy), var(--grey-accent));
             transition: width 0.35s ease;
         }
         .val-card:hover::after { width: 100%; }
@@ -839,6 +839,57 @@
             font-size: 0.8rem;
             color: #bbb;
             font-style: italic;
+        }
+
+        /* Flush product highlight */
+        .flush-highlight {
+            background: linear-gradient(135deg, var(--grey-bg) 0%, #e8eaee 100%);
+            border: 1px solid rgba(107,122,148,0.15);
+            border-radius: 2px;
+            padding: 2.2rem;
+            margin: 2rem 0;
+        }
+        .flush-highlight h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .flush-highlight .es-h4 {
+            font-size: 0.85rem;
+            color: var(--grey-mid);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+        .flush-highlight p {
+            font-size: 0.95rem !important;
+            color: var(--grey-text) !important;
+            margin-bottom: 1rem !important;
+        }
+        .flush-features {
+            list-style: none;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+        }
+        .flush-features li {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .flush-features li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--grey-accent);
+            flex-shrink: 0;
         }
 
         @keyframes fadeIn {
@@ -914,7 +965,7 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 3px;
-            background: var(--navy);
+            background: linear-gradient(90deg, var(--navy), var(--grey-accent));
             transition: width 0.4s ease;
         }
         .product-item:hover::after { width: 100%; }
@@ -927,7 +978,7 @@
         .product-image-box {
             width: 100%;
             height: 300px;
-            background: #f9f9f9;
+            background: linear-gradient(135deg, #f4f5f8 0%, #eaedf2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -938,7 +989,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(26,40,72,0.04), rgba(168,179,196,0.06));
+            background: linear-gradient(135deg, rgba(26,40,72,0.04), rgba(107,122,148,0.06));
         }
         .image-placeholder {
             text-align: center;
@@ -953,18 +1004,18 @@
         }
         .img-icon {
             width: 60px; height: 60px;
-            border: 1.5px solid rgba(26,40,72,0.15);
+            border: 1.5px solid rgba(107,122,148,0.25);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             background: var(--white);
         }
-        .img-icon svg { width: 28px; height: 28px; stroke: var(--navy); fill: none; opacity: 0.7; }
+        .img-icon svg { width: 28px; height: 28px; stroke: var(--grey-accent); fill: none; opacity: 0.8; }
         .img-label {
             font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(0,0,0,0.25);
+            color: var(--grey-mid);
         }
 
         .product-info {
@@ -976,7 +1027,7 @@
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--navy);
+            color: var(--grey-accent);
             margin-bottom: 0.4rem;
         }
         .product-cat .es-mini {
@@ -1149,6 +1200,7 @@
             .section-label { position: static; }
             .products-grid { grid-template-columns: repeat(2,1fr); }
             .footer-container { grid-template-columns: 1fr 1fr; }
+            .flush-features { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -1187,19 +1239,9 @@
 
             .hero-left { padding: 4rem 1.5rem; }
             .hero-title { font-size: 2.5rem; }
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 2rem;
-            }
-            .hero-btns {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            .btn-main, .btn-outline {
-                width: 100%;
-                justify-content: center;
-            }
+            .hero-stats { flex-wrap: wrap; gap: 2rem; }
+            .hero-btns { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .btn-main, .btn-outline { width: 100%; justify-content: center; }
 
             .app-grid { grid-template-columns: 1fr; }
             .app-card { height: 380px; }
@@ -1208,25 +1250,16 @@
             .about-full { padding: 5rem 1.5rem; }
             .about-intro-left h1 { font-size: 2.5rem; }
             .values-grid { grid-template-columns: 1fr; }
+            .flush-features { grid-template-columns: 1fr; }
             .section-ghost-num { font-size: 3rem; }
 
             .products-page { padding: 5rem 1.5rem; }
-            .products-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
+            .products-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
             .products-header-left h1 { font-size: 2.5rem; }
-            .products-header-right {
-                text-align: left;
-                max-width: 100%;
-            }
+            .products-header-right { text-align: left; max-width: 100%; }
             .products-grid { grid-template-columns: 1fr; }
 
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
+            .footer-container { grid-template-columns: 1fr; gap: 2.5rem; }
             footer { padding: 3.5rem 1.5rem 2rem; }
         }
 
@@ -1246,8 +1279,8 @@
     <header id="mainHeader">
         <div class="header-top">
             <p>
-                Water Valves and Control Technology
-                <span class="es-text">Válvulas de Agua y Tecnología de Control</span>
+                Luxury Sanitary Ware and Plumbing
+                <span class="es-text">Artículos Sanitarios de Lujo y Fontanería</span>
             </p>
         </div>
         <nav>
@@ -1290,16 +1323,15 @@
                 </div>
 
                 <h1 class="hero-title">
-                    <em>Water Valves</em>
-                    <strong>and Control</strong>
-                    <strong>Technology</strong>
+                    <em>Redefining the Essence</em>
+                    <strong>of Luxury</strong>
                 </h1>
 
                 <p class="hero-desc">
-                    Spanish-engineered solutions for sanitary materials and plumbing. Where craftsmanship meets modern precision.
+                    Spanish-engineered luxury sanitary ware and plumbing solutions. Where centuries of craftsmanship tradition meet modern engineering innovation.
                 </p>
                 <p class="hero-desc es">
-                    Soluciones de ingeniería española para materiales sanitarios y fontanería. Donde la artesanía se encuentra con la precisión moderna.
+                    Artículos sanitarios de lujo y soluciones de fontanería de ingeniería española. Donde siglos de tradición artesanal se encuentran con la innovación ingenieril moderna.
                 </p>
 
                 <div class="hero-btns">
@@ -1345,8 +1377,8 @@
                     <span class="es-mini">Hecho en España</span>
                 </div>
                 <div class="float-tag ft2">
-                    <span class="ft-dot" style="animation-delay:0.7s;"></span>EN 1213 Compliant
-                    <span class="es-mini">Conforme EN 1213</span>
+                    <span class="ft-dot" style="animation-delay:0.7s;"></span>Luxury Design
+                    <span class="es-mini">Diseño de Lujo</span>
                 </div>
                 <div class="float-tag ft3">
                     <span class="ft-dot c-dot-light" style="animation-delay:1.4s;"></span>ISO 9001 Quality
@@ -1358,21 +1390,21 @@
         <!-- MARQUEE -->
         <div class="marquee-bar">
             <div class="marquee-track">
-                <span class="marquee-item">Ball Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Gate Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Check Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Pressure Valves <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Flush Mechanisms <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Luxury Sanitary Ware <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Spanish Engineering <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Dual Flush Technology <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Water Saving Solutions <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Madrid, Spain — Est. 2010 <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Residential &amp; Industrial <span class="m-sep">◆</span></span>
-                <!-- duplicate for seamless loop -->
-                <span class="marquee-item">Ball Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Gate Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Check Valves <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Pressure Valves <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Residential &amp; Commercial <span class="m-sep">◆</span></span>
+                <!-- duplicate -->
+                <span class="marquee-item">Flush Mechanisms <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Luxury Sanitary Ware <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Spanish Engineering <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Dual Flush Technology <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Water Saving Solutions <span class="m-sep">◆</span></span>
                 <span class="marquee-item">Madrid, Spain — Est. 2010 <span class="m-sep">◆</span></span>
-                <span class="marquee-item">Residential &amp; Industrial <span class="m-sep">◆</span></span>
+                <span class="marquee-item">Residential &amp; Commercial <span class="m-sep">◆</span></span>
             </div>
         </div>
 
@@ -1387,8 +1419,8 @@
                         <div class="app-badge">Application 01</div>
                         <h2>Domestic<br>Applications</h2>
                         <p class="es-h2">Aplicaciones Domésticas</p>
-                        <p>Elegant, silent, and durable valves for residential plumbing — designed to blend Spanish craftsmanship with everyday reliability.</p>
-                        <p class="es-p">Válvulas elegantes, silenciosas y duraderas para fontanería residencial — diseñadas para combinar la artesanía española con la fiabilidad cotidiana.</p>
+                        <p>Elegant luxury sanitary solutions for high-end homes — where refined Spanish craftsmanship transforms the bathroom into a sanctuary of comfort and timeless elegance.</p>
+                        <p class="es-p">Soluciones sanitarias de lujo para hogares de alta gama — donde la artesanía española refinada transforma el baño en un santuario de confort y elegancia atemporal.</p>
                         <div class="app-arrow">
                             <div class="arr-line"></div>
                             Explore Range
@@ -1403,8 +1435,8 @@
                         <div class="app-badge">Application 02</div>
                         <h2>Professional and<br>Industrial Applications</h2>
                         <p class="es-h2">Aplicaciones Profesionales e Industriales</p>
-                        <p>High-performance valve systems engineered for commercial and industrial environments — built to withstand the most demanding conditions.</p>
-                        <p class="es-p">Sistemas de válvulas de alto rendimiento diseñados para entornos comerciales e industriales — construidos para resistir las condiciones más exigentes.</p>
+                        <p>High-performance luxury plumbing systems for commercial spaces and luxury hotels — engineered to meet the most demanding environments while maintaining superior aesthetics.</p>
+                        <p class="es-p">Sistemas de fontanería de lujo para espacios comerciales y hoteles de lujo — diseñados para los entornos más exigentes manteniendo una estética superior.</p>
                         <div class="app-arrow">
                             <div class="arr-line"></div>
                             Explore Range
@@ -1430,16 +1462,12 @@
                     </div>
                     <div class="about-intro-right">
                         <div class="text-group">
-                            <p>Fonte is a Spanish brand specialized in sanitary materials and plumbing solutions, founded in 2010 in Madrid, where centuries of craftsmanship tradition meet modern engineering innovation.</p>
-                            <p class="es-text">Fonte es una marca española especializada en materiales sanitarios y soluciones de fontanería, fundada en 2010 en Madrid, donde siglos de tradición artesanal se encuentran con la innovación ingenieril moderna.</p>
+                            <p>Fonte is a Spanish brand specialized in luxury sanitary ware and plumbing solutions, founded in 2010 in Madrid. The company began as a passionate project to redefine the concept of luxury in the world of sanitary ware and plumbing, inspired by ancient Spanish craftsmanship heritage with a modern innovative touch.</p>
+                            <p class="es-text">Fonte es una marca española especializada en artículos sanitarios de lujo y soluciones de fontanería, fundada en 2010 en Madrid. La empresa comenzó como un proyecto apasionado para redefinir el concepto de lujo en el mundo de los sanitarios y la fontanería, inspirada en la antigua herencia artesanal española con un toque moderno e innovador.</p>
                         </div>
                         <div class="text-group">
-                            <p>We draw our name "Fonte" from the concept of water as the source of life, and reflect this meaning in products that combine high quality, practical performance, and elegant Spanish design.</p>
-                            <p class="es-text">Tomamos nuestro nombre "Fonte" del concepto del agua como fuente de vida, y reflejamos este significado en productos que combinan alta calidad, rendimiento práctico y un diseño español elegante.</p>
-                        </div>
-                        <div class="text-group">
-                            <p>We ensure that every piece is an expression of Spanish craftsmanship and attention to detail.</p>
-                            <p class="es-text">Garantizamos que cada pieza es una expresión de la artesanía española y la atención al detalle.</p>
+                            <p>Since then, Fonte has grown to become a symbol of quality and excellence, transforming ideas into products that adorn bathrooms in high-end homes and luxury hotels around the world.</p>
+                            <p class="es-text">Desde entonces, Fonte ha crecido hasta convertirse en un símbolo de calidad y excelencia, transformando ideas en productos que adornan los baños de hogares de alta gama y hoteles de lujo en todo el mundo.</p>
                         </div>
                     </div>
                 </div>
@@ -1454,8 +1482,8 @@
                     </div>
                     <div class="section-body">
                         <div class="text-group">
-                            <p>To become a globally leading Spanish brand in sanitary materials and plumbing, known for distinctive design, reliability, and sustainability.</p>
-                            <p class="es-text">Convertirnos en una marca española líder a nivel mundial en materiales sanitarios y fontanería, reconocida por su diseño distintivo, fiabilidad y sostenibilidad.</p>
+                            <p>At Fonte, we seek to transform the bathroom from a mere functional space into a sanctuary of comfort and timeless elegance. We believe that every detail must reflect true luxury, whether in clean, elegant design or in the selection of refined materials and precise finishes.</p>
+                            <p class="es-text">En Fonte, buscamos transformar el baño de un mero espacio funcional a un santuario de confort y elegancia atemporal. Creemos que cada detalle debe reflejar el verdadero lujo, ya sea en un diseño limpio y elegante o en la selección de materiales refinados y acabados precisos.</p>
                         </div>
                     </div>
                 </div>
@@ -1470,25 +1498,21 @@
                     </div>
                     <div class="section-body">
                         <div class="text-group">
-                            <p>To provide comprehensive solutions in sanitary materials and plumbing distinguished by:</p>
-                            <p class="es-text">Proporcionar soluciones integrales en materiales sanitarios y de fontanería que se distingan por:</p>
+                            <p>We are committed to manufacturing luxury sanitary and plumbing products that combine traditional Spanish craftsmanship with modern technological innovation. Our mission is to ensure customer satisfaction through unbeatable quality and designs that exceed expectations.</p>
+                            <p class="es-text">Nos comprometemos a fabricar productos sanitarios y de fontanería de lujo que combinan la artesanía tradicional española con la innovación tecnológica moderna. Nuestra misión es garantizar la satisfacción del cliente a través de una calidad inigualable y diseños que superan las expectativas.</p>
                         </div>
                         <ul class="mission-list">
-                            <li><span class="m-num">01</span>Spanish manufacturing quality</li>
+                            <li><span class="m-num">01</span>Spanish quality manufacturing</li>
                             <li><span class="m-num">02</span>Modern designs inspired by European taste</li>
                             <li><span class="m-num">03</span>Long-lasting reliable performance</li>
                             <li><span class="m-num">04</span>Compliance with the highest international standards</li>
                         </ul>
                         <ul class="es-list">
-                            <li>Calidad de fabricación española</li>
+                            <li>Calidad Española en la Fabricación</li>
                             <li>Diseños modernos inspirados en el gusto europeo</li>
                             <li>Rendimiento fiable de larga duración</li>
                             <li>Cumplimiento de los más altos estándares internacionales</li>
                         </ul>
-                        <div class="text-group">
-                            <p>With a focus on meeting the needs of residential and commercial projects alike.</p>
-                            <p class="es-text">Con un enfoque en satisfacer las necesidades tanto de proyectos residenciales como comerciales.</p>
-                        </div>
                     </div>
                 </div>
 
@@ -1502,12 +1526,23 @@
                     </div>
                     <div class="section-body">
                         <div class="text-group">
-                            <p>Fonte specializes in high-quality water valves, designed to the highest European standards to provide reliable performance, long-lasting durability, and ease of control.</p>
-                            <p class="es-text">Fonte se especializa en válvulas de agua de alta calidad, diseñadas según los más altos estándares europeos para ofrecer un rendimiento fiable, durabilidad de larga duración y facilidad de control.</p>
+                            <p>Fonte specializes in high-quality luxury sanitary ware and plumbing components, designed to the highest European standards to provide reliable performance, long-lasting durability, and ease of control.</p>
+                            <p class="es-text">Fonte se especializa en artículos sanitarios de lujo y componentes de fontanería de alta calidad, diseñados según los más altos estándares europeos para ofrecer un rendimiento fiable, durabilidad de larga duración y facilidad de control.</p>
+                        </div>
+                        <div class="flush-highlight">
+                            <h4>Flush Mechanism</h4>
+                            <p class="es-h4">Mecanismo de Descarga</p>
+                            <p>Our premium flush mechanism is engineered for durability, precision, and silent performance. Designed to ensure efficient water control and long-term reliability, it reflects Fonte's commitment to excellence in every internal detail.</p>
+                            <p>Manufactured with high-quality resistant materials, it guarantees smooth operation and compatibility with modern sanitary systems.</p>
+                            <ul class="flush-features">
+                                <li>Dual Flush Compatibility</li>
+                                <li>Water Saving Technology</li>
+                                <li>High Resistance Internal Components</li>
+                                <li>Easy Installation System</li>
+                            </ul>
                         </div>
                         <div class="text-group">
-                            <p>Fonte valves combine engineering precision with elegant Spanish design to meet the needs of residential and commercial applications.</p>
-                            <p class="es-text">Las válvulas Fonte combinan la precisión ingenieril con el elegante diseño español para satisfacer las necesidades de aplicaciones residenciales y comerciales.</p>
+                            <p class="es-text">Nuestro mecanismo de descarga premium está diseñado para ofrecer durabilidad, precisión y un funcionamiento silencioso. Fabricado con materiales resistentes de alta calidad, garantiza un rendimiento eficiente y una larga vida útil.</p>
                         </div>
                     </div>
                 </div>
@@ -1523,20 +1558,20 @@
                     <div class="section-body">
                         <div class="values-grid">
                             <div class="val-card">
-                                <strong>Quality and precision in every detail</strong>
-                                <span>Calidad y precisión en cada detalle</span>
+                                <strong>Luxury in every product</strong>
+                                <span>Lujo en cada producto</span>
                             </div>
                             <div class="val-card">
-                                <strong>Engineering innovation</strong>
-                                <span>Innovación ingenieril</span>
+                                <strong>Spanish Quality Manufacturing</strong>
+                                <span>Calidad Española en la Fabricación</span>
                             </div>
                             <div class="val-card">
-                                <strong>Spanish elegance</strong>
-                                <span>Elegancia española</span>
+                                <strong>Design Innovation</strong>
+                                <span>Innovación en el Diseño</span>
                             </div>
                             <div class="val-card">
-                                <strong>Sustainability and water resource conservation</strong>
-                                <span>Sostenibilidad y conservación de los recursos hídricos</span>
+                                <strong>Sustainability &amp; Responsibility</strong>
+                                <span>Sostenibilidad y Responsabilidad</span>
                             </div>
                         </div>
                     </div>
@@ -1560,8 +1595,8 @@
                         <p class="es-h1">Nuestros Productos</p>
                     </div>
                     <div class="products-header-right">
-                        Precision-engineered Spanish water valves and control technology — designed for performance, built to last.
-                        <span class="es-text">Válvulas de agua y tecnología de control de ingeniería española — diseñadas para el rendimiento, construidas para durar.</span>
+                        Precision-engineered Spanish luxury sanitary ware — designed for performance, built to last, crafted to impress.
+                        <span class="es-text">Artículos sanitarios de lujo de ingeniería española — diseñados para el rendimiento, construidos para durar, elaborados para impresionar.</span>
                     </div>
                 </div>
 
@@ -1577,7 +1612,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Ball Valve<span class="es-mini">Válvula de Bola</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 1</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1595,7 +1630,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Gate Valve<span class="es-mini">Válvula de Compuerta</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 2</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1613,7 +1648,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Check Valve<span class="es-mini">Válvula de Retención</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 3</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1631,7 +1666,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Pressure Valve<span class="es-mini">Válvula de Presión</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 4</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1649,7 +1684,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Control Valve<span class="es-mini">Válvula de Control</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 5</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1667,7 +1702,7 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <p class="product-cat">Safety Valve<span class="es-mini">Válvula de Seguridad</span></p>
+                            <p class="product-cat">Flush Mechanism<span class="es-mini">Mecanismo de Descarga</span></p>
                             <h3>Product Name 6</h3>
                             <p>Product description here</p>
                             <span class="product-lnk">View Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
@@ -1686,8 +1721,7 @@
                     <img src="LOGO (2).png" alt="Fonte Logo">
                 </div>
                 <div class="footer-brand-info">
-                    Calle de la Ingeniería 42<br>
-                    28013 Madrid, España<br><br>
+                    Barcelona, Spain<br><br>
                     C.I.F.: B-12345678<br>
                     Capital social: 1.500.000 €
                 </div>
@@ -1712,26 +1746,22 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Fonte S.L. — Water Valves and Control Technology</p>
-            <p class="es-line">© 2026 Fonte S.L. — Válvulas de Agua y Tecnología de Control</p>
-            <p style="margin-top:0.6rem;">Engineered in Madrid, Spain</p>
-            <p class="es-line">Diseñado en Madrid, España</p>
+            <p>© 2026 Fonte S.L. — Luxury Sanitary Ware and Plumbing</p>
+            <p class="es-line">© 2026 Fonte S.L. — Artículos Sanitarios de Lujo y Fontanería</p>
+            <p style="margin-top:0.6rem;">Redefining the concept of luxury in sanitary ware.</p>
+            <p class="es-line">Redefiniendo el concepto de lujo en artículos sanitarios.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
         }
-
         function closeMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.remove('active');
         }
-
-        // Page Navigation
         function showPage(pageName) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             if (pageName === 'home') {
@@ -1741,8 +1771,6 @@
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -1756,21 +1784,15 @@
                 }
             });
         });
-
-        // Scroll reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Header scroll
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 60);
-
-            // Active nav
             const sections = document.querySelectorAll('section[id]');
             const scrollY = window.pageYOffset;
             sections.forEach(section => {
@@ -1784,8 +1806,6 @@
                 }
             });
         });
-
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('navMenu');
             const toggle = document.querySelector('.menu-toggle');
