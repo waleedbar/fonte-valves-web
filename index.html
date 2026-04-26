@@ -500,6 +500,12 @@
             cursor: pointer;
         }
 
+        /* on mobile height is auto, inner must fill */
+        @media (max-width: 768px) {
+            .app-card { height: auto; min-height: 480px; }
+            .app-card-inner { position: absolute; inset: 0; min-height: 480px; }
+        }
+
         .app-card-inner {
             position: absolute;
             inset: 0;
@@ -589,6 +595,12 @@
         .app-card:hover .app-content p {
             opacity: 1;
             transform: translateY(0);
+        }
+        @media (hover: none) {
+            .app-content p {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .app-arrow {
@@ -1244,8 +1256,10 @@
             .btn-main, .btn-outline { width: 100%; justify-content: center; }
 
             .app-grid { grid-template-columns: 1fr; }
-            .app-card { height: 380px; }
-            .app-content { padding: 2rem 1.5rem; }
+            .app-card { height: auto; min-height: 480px; }
+            .app-content { padding: 2rem 1.5rem; justify-content: flex-end; }
+            .app-content h2 { font-size: 1.9rem; }
+            .app-content p { max-width: 100%; }
 
             .about-full { padding: 5rem 1.5rem; }
             .about-intro-left h1 { font-size: 2.5rem; }
